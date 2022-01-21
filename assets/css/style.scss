@@ -24,6 +24,49 @@ ul {
 body {
     font-size: 16px;
     font-family: $Kumbh;
+    .navbar {  
+        display:flex;
+        align-items:center; 
+        padding:10px;
+        margin: 0.5rem 1rem;
+        font-size:1.1rem;
+        background: $White;
+        color:$Dark_grayish_blue;
+        .navbar__links { 
+            display:flex;
+            .navbar__link { 
+                padding:0 10px;
+                a {
+                    text-decoration:none;
+                }
+            }
+        }
+    }
+    header {
+        position: relative;
+        display:flex;
+        align-items:center;
+        .rightHead {
+            display:flex;
+            align-items:center; 
+            position: absolute;
+            right: 0;
+            .avatar {
+                height: 6vh;
+                margin: 1rem;
+            }
+            .btnCart {
+                cursor: pointer;
+            }
+            .cart {
+                visibility: hidden;
+            }
+            .openCart {
+                visibility: visible;
+            }
+        }
+    }
+    
 }
 @media screen and (max-width:767.98px) {
     .navbar__links { 
@@ -34,14 +77,14 @@ body {
         height:calc(100vh - 65px);  
         position:absolute;
         top:65px;
-        right:0;     
-        background:$Black;     
-        transform: translateX(110%);
+        left:0;     
+        background:$Light_grayish_blue;     
+        transform: translateX(0%);
         transition: all .5s ease-in-out;
     }
     .show-nav {
         .navbar__links { 
-            width:100vw;    
+            width:70vw;    
             transform: translateX(0);
         }
         .navbar__link  {        
@@ -74,13 +117,13 @@ body {
         }
     }
     .navbar__link {    
-        transform: translateX(101%);
+        transform: translateX(10%);
         transition: all .5s ease-in-out;
         a {
             display:block;
             padding:1rem;
             font-size:1.6rem;
-            color:$Dark_grayish_blue;  
+            color:$Black;  
             transition: all .4s ease-in-out;
             &:hover {
                 padding-left:2rem;
@@ -93,6 +136,7 @@ body {
         display:block;
         position:relative;
         padding:0;
+        margin-left: 5px;
         width:45px;
         height:45px;
         border:none;
@@ -101,15 +145,15 @@ body {
     }
     .bar {
         display:block;    
-        width:45px;
+        width:23px;
         height:4px;  
         border-radius:3px;
         background:$Black; 
         transition: all .5s ease-in-out;
         &::before, &::after {
             content:"";
-            width:45px;
-            height:4px;
+            width:23px;
+            height:3px;
             position:absolute; 
             left:0;  
             background:$Black; 
@@ -117,16 +161,20 @@ body {
             transition: all .5s ease-in-out;
         }
         &::before {
-            transform:translateY(-12px);
+            transform:translateY(-8px);
         }
         &::after {
-            transform:translateY(12px);
+            transform:translateY(8px);
         }
     }
 }
 @media screen and (min-width:768px) {
+    .burger {
+        display: none;
+    }
     .navbar__link {
         a {
+            color: $Dark_grayish_blue;
             &::after {
                 display:block;
                 content:"";

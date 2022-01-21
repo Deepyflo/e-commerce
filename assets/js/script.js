@@ -6,3 +6,11 @@ const toggleMenu = () => {
     });    
 }
 toggleMenu();
+const openCart = () => {
+    const btnCart = document.getElementById('cart');
+    const cart = document.querySelector('.cart');
+
+    btnCart.addEventListener('click', () => {
+        cart.classList.toggle('openCart');
+    });
+}
