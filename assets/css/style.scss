@@ -11,3 +11,137 @@ $Light_grayish_blue: hsl(223, 64%, 98%);
 $White: hsl(0, 0%, 100%);
 $Black: hsl(0, 0%, 0%); // (with 75% opacity for lightbox background)
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+}
+ul {
+    list-style: none;
+}
+
+body {
+    font-size: 16px;
+    font-family: $Kumbh;
+}
+@media screen and (max-width:767.98px) {
+    .navbar__links { 
+        overflow:hidden;
+        display:flex;
+        flex-direction:column;
+        width:0;
+        height:calc(100vh - 65px);  
+        position:absolute;
+        top:65px;
+        right:0;     
+        background:$Black;     
+        transform: translateX(110%);
+        transition: all .5s ease-in-out;
+    }
+    .show-nav {
+        .navbar__links { 
+            width:100vw;    
+            transform: translateX(0);
+        }
+        .navbar__link  {        
+            transform: translateX(0);    
+        }
+        .bar {
+            width:0;
+            background:transparent;
+            &::before {
+                transform:rotate(45deg);
+            }
+            &::after {
+                transform:rotate(-45deg);
+            }
+        }
+        .first {      
+            transition: all 1s ease-out;
+        }
+        .second {      
+            transition: all 1.1s ease-out;
+        } 
+        .third {      
+            transition: all 1.2s ease-out;
+        } 
+        .four {      
+            transition: all 1.3s ease-out;
+        } 
+        .fifth {      
+            transition: all 1.4s ease-out;
+        }
+    }
+    .navbar__link {    
+        transform: translateX(101%);
+        transition: all .5s ease-in-out;
+        a {
+            display:block;
+            padding:1rem;
+            font-size:1.6rem;
+            color:$Dark_grayish_blue;  
+            transition: all .4s ease-in-out;
+            &:hover {
+                padding-left:2rem;
+                letter-spacing:5px;
+            }
+        }
+    }
+    /* Toggle menu */
+    .burger {
+        display:block;
+        position:relative;
+        padding:0;
+        width:45px;
+        height:45px;
+        border:none;
+        background:transparent;
+        cursor:pointer;
+    }
+    .bar {
+        display:block;    
+        width:45px;
+        height:4px;  
+        border-radius:3px;
+        background:$Black; 
+        transition: all .5s ease-in-out;
+        &::before, &::after {
+            content:"";
+            width:45px;
+            height:4px;
+            position:absolute; 
+            left:0;  
+            background:$Black; 
+            border-radius:3px;    
+            transition: all .5s ease-in-out;
+        }
+        &::before {
+            transform:translateY(-12px);
+        }
+        &::after {
+            transform:translateY(12px);
+        }
+    }
+}
+@media screen and (min-width:768px) {
+    .navbar__link {
+        a {
+            &::after {
+                display:block;
+                content:"";
+                width:0;
+                height:1px;
+                background:$White;
+                transition:width .4s;
+            }
+        }
+        &::hover {
+            a {
+                &::after {
+                    width:100%;
+                }
+            }
+        }
+    }
+}
