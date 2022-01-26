@@ -1,4 +1,31 @@
 @import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap");
+@-webkit-keyframes openCart {
+  to {
+    -webkit-transform: scale(100%);
+            transform: scale(100%);
+  }
+}
+@keyframes openCart {
+  to {
+    -webkit-transform: scale(100%);
+            transform: scale(100%);
+  }
+}
+
+@-webkit-keyframes closeCart {
+  to {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+}
+
+@keyframes closeCart {
+  to {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -11,9 +38,15 @@ ul {
   list-style: none;
 }
 
+.bold {
+  font-weight: bold;
+}
+
 body {
+  position: relative;
   font-size: 16px;
   font-family: "Kumbh Sans", sans-serif;
+  background-color: white;
 }
 
 body .navbar {
@@ -45,13 +78,49 @@ body .navbar .navbar__links .navbar__link a {
 }
 
 body header {
-  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+body header .cart {
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  display: block;
+  -webkit-box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+          box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+  position: absolute;
+  z-index: 2;
+  top: 85px;
+  background-color: white;
+  border-radius: 1rem;
+}
+
+body header .cart hr {
+  border-color: #ffede0;
+}
+
+body header .cart .cartText {
+  padding: 1rem;
+}
+
+body header .cart .content {
+  text-align: center;
+  padding: 3rem 1rem;
+}
+
+body header .closeCart {
+  -webkit-animation: closeCart .5s ease-in-out 1 normal forwards;
+          animation: closeCart .5s ease-in-out 1 normal forwards;
+}
+
+body header .openCart {
+  display: block;
+  -webkit-animation: openCart .5s ease-in-out 1 normal forwards;
+          animation: openCart .5s ease-in-out 1 normal forwards;
 }
 
 body header .rightHead {
@@ -66,7 +135,7 @@ body header .rightHead {
 }
 
 body header .rightHead .avatar {
-  height: 6vh;
+  height: 1.75rem;
   margin: 1rem;
 }
 
@@ -74,16 +143,144 @@ body header .rightHead .btnCart {
   cursor: pointer;
 }
 
-body header .rightHead .cart {
-  visibility: hidden;
+body main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
-body header .rightHead .openCart {
-  visibility: visible;
+body main .productInfo {
+  margin: 1rem;
+}
+
+body main .productInfo .productMark {
+  color: #ff7d1a;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  letter-spacing: 0.1rem;
+}
+
+body main .productInfo .productName {
+  font-size: 1.25rem;
+  margin-top: 0.7rem;
+}
+
+body main .productInfo .productDesc {
+  color: #68707d;
+  margin-top: 1rem;
+  font-size: 0.8rem;
+  line-height: 1.29rem;
+}
+
+body main .productInfo .productPrice {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 1rem 0;
+}
+
+body main .productInfo .productPrice .price {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body main .productInfo .productPrice .price .priceChild {
+  margin-right: 0.8rem;
+  font-size: 1.5rem;
+}
+
+body main .productInfo .productPrice .price .discount {
+  color: #ff7d1a;
+  background-color: #ffede0;
+  font-size: 0.9rem;
+  border-radius: 0.5rem;
+  padding: 0.3rem 0.5rem;
+}
+
+body main .productInfo .productPrice .fullPrice {
+  font-size: 0.9rem;
+  text-decoration: line-through;
+  color: #b6bcc8;
+}
+
+body main .productInfo .productCart .quantity {
+  background-color: #f7f8fd;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  height: 3rem;
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+}
+
+body main .productInfo .productCart .quantity input {
+  width: 100%;
+  text-align: center;
+  border: none;
+  background-color: transparent;
+  font-weight: bolder;
+}
+
+body main .productInfo .productCart .quantity button {
+  width: 4rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border: none;
+  background-color: transparent;
+}
+
+body main .productInfo .productCart .add .btnAdd {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: 3rem;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #ff7d1a;
+  color: white;
+  border: none;
+  border-radius: 1rem;
+  -webkit-box-shadow: 0px 12px 25px -15px #ff7d1a;
+          box-shadow: 0px 12px 25px -15px #ff7d1a;
 }
 
 @media screen and (max-width: 767.98px) {
+  .cart {
+    margin: 0 0.5rem;
+    width: 95vw;
+    height: auto;
+  }
+  .logo {
+    width: 7rem;
+    height: auto;
+  }
   .navbar__links {
+    z-index: 3;
     overflow: hidden;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -95,9 +292,9 @@ body header .rightHead .openCart {
     width: 0;
     height: calc(100vh - 65px);
     position: absolute;
-    top: 65px;
+    top: 80px;
     left: 0;
-    background: #f7f8fd;
+    background: white;
     -webkit-transform: translateX(0%);
             transform: translateX(0%);
     -webkit-transition: all .5s ease-in-out;
@@ -153,7 +350,7 @@ body header .rightHead .openCart {
   .navbar__link a {
     display: block;
     padding: 1rem;
-    font-size: 1.6rem;
+    font-size: 1.3rem;
     color: black;
     -webkit-transition: all .4s ease-in-out;
     transition: all .4s ease-in-out;

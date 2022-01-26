@@ -17,12 +17,21 @@
 	</head>
 	<body>
 		<header>
+			<div class="cart closeCart">
+				<p class="cartText bold">Cart</p>
+				<hr>
+				<div class="content">
+					<p class="cartText">Your cart is empty</p>
+				</div>
+				
+				<!--generated in JS-->
+			</div>
 			<nav class="navbar" role="navigation">
 				<button class="burger">
 					<span class="bar"></span>
 				</button>
-				<div class="logo">
-					<img src="./assets/img/logo.svg" alt="Logo sneakers">
+				<div >
+					<img src="./assets/img/logo.svg" alt="Logo sneakers" class="logo">
 				</div>
 				<ul class="navbar__links">
 					<li class="navbar__link first"><a href="#">Collections</a></li>
@@ -34,11 +43,7 @@
 			</nav>
 			<div class="rightHead">
 				<img src="./assets/img/icon-cart.svg" alt="icon cart" id="cart" class="btnCart">
-				<div class="cart">
-					<p>Cart</p>
-					<hr>
-					<!--generated in JS-->
-				</div>
+				
 				<img src="./assets/img/image-avatar.png" alt="avatar" class="avatar">
 			</div>
 			
@@ -50,7 +55,7 @@
 				<div class="allImage"><!--generated in JS--></div>
 			</section>
 			<section class="productInfo">
-				<div class="productMark">
+				<div class="productMark bold">
 					<p>Sneaker Company</p>
 				</div>
 				<div class="productName">
@@ -61,24 +66,24 @@
 				</div>
 				<div class="productPrice">
 					<div class="price">
-						<p>$125.00</p>
+						<p class="bold priceChild">$125.00</p>
+						<div class="discount bold">
+							<p>50%</p>
+						</div>
 					</div>
-					<div class="discount">
-						<p>50%</p>
-					</div>
-					<div class="fullPrice">
+					<div class="fullPrice bold">
 						<p>$250.00</p>
 					</div>
 				</div>
 				<div class="productCart">
 					<div class="quantity">
 						<button id="btnMinus"><img src="./assets/img/icon-minus.svg" alt="icon minus"></button>
-						<input type="text" name="qte" id="InQuantity">
+						<input type="text" name="qte" id="InQuantity" value="0">
 						<button id="btnPlus"><img src="./assets/img/icon-plus.svg" alt="icon plus"></button>
 					</div>
 					<div class="add">
-						<button id="btnAdd">
-							<img src="./assets/img/icon-cart.svg" alt="icon cart"> <p>Add to cart</p>
+						<button id="btnAdd" class="btnAdd">
+							<img src="./assets/img/icon-cart-white.svg" alt="icon cart"><p class="bold">Add to cart</p>
 						</button>
 					</div>
 				</div>

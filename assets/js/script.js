@@ -5,12 +5,14 @@ const toggleMenu = () => {
         navbar.classList.toggle('show-nav');
     });    
 }
-toggleMenu();
 const openCart = () => {
     const btnCart = document.getElementById('cart');
     const cart = document.querySelector('.cart');
 
-    btnCart.addEventListener('click', () => {
+    btnCart.addEventListener('click', (e) => {
         cart.classList.toggle('openCart');
+        cart.classList.toggle('closeCart');
     });
 }
+openCart();
+toggleMenu();
