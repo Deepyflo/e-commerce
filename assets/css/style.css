@@ -200,6 +200,19 @@ body main .productImage .carouselMobile .carouselImageMobile .cont-btn .btn-nav 
           align-items: center;
 }
 
+body main .productImage .displayDesktop {
+  margin: 1rem;
+}
+
+body main .productImage .displayDesktop .display img {
+  width: 10%;
+}
+
+body main .productImage .displayDesktop .thumbnail {
+  display: none;
+  width: 50%;
+}
+
 body main .productInfo {
   margin: 1rem;
 }
@@ -468,11 +481,26 @@ body main .productInfo .productCart .add .btnAdd img {
 
 @media screen and (min-width: 768px) {
   main {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
     -webkit-transform: translateY(0);
             transform: translateY(0);
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
   }
   main .carouselMobile {
     display: none;
+  }
+  main .displayDesktop {
+    max-width: 45vw;
+    margin: 10rem;
+  }
+  main .productInfo {
+    max-width: 45vw;
+    margin: 10rem;
   }
   .burger {
     display: none;

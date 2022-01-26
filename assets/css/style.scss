@@ -131,14 +131,7 @@ body {
                         transform: translateY(60vw);
                         justify-content: space-between;
                         align-items: center;
-                        // text-align: center;
                         margin: 1rem;
-                        // .right {
-                        //     right: 0;
-                        // }
-                        // .left {
-                        //     left: 0;
-                        // }
                         .btn-nav {
                             display: flex;
                             background-color: $White;
@@ -148,6 +141,19 @@ body {
                             align-items: center;
                         }
                     }
+                }
+            }
+            .displayDesktop {
+                // width: 50vw;
+                margin: 1rem;
+                .display {
+                    img {
+                        width: 10%;
+                    }
+                }
+                .thumbnail {
+                    display: none;
+                    width: 50%;
                 }
             }
         }
@@ -365,11 +371,23 @@ body {
 // Desktop
 @media screen and (min-width:768px) {
     main {
+        display: flex;
+        flex-wrap: nowrap;
         transform: translateY(0);
+        justify-content: space-around;
         .carouselMobile {
             display: none;
         }
+        .displayDesktop {
+            max-width: 45vw;
+            margin: 10rem;
+        } 
+        .productInfo{
+            max-width: 45vw;
+            margin: 10rem;
+        }
     }
+    
     .burger {
         display: none;
     }
