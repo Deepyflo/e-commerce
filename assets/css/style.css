@@ -49,6 +49,10 @@ body {
   background-color: white;
 }
 
+body button {
+  cursor: pointer;
+}
+
 body .navbar {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -147,6 +151,53 @@ body main {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+body main .productImage .carouselMobile {
+  z-index: 1;
+  max-width: 767.98px;
+}
+
+body main .productImage .carouselMobile .carouselImageMobile img {
+  max-width: 100%;
+  display: none;
+}
+
+body main .productImage .carouselMobile .carouselImageMobile img.active {
+  display: block;
+}
+
+body main .productImage .carouselMobile .carouselImageMobile .cont-btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  z-index: 2;
+  -webkit-transform: translateY(60vw);
+          transform: translateY(60vw);
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 1rem;
+}
+
+body main .productImage .carouselMobile .carouselImageMobile .cont-btn .btn-nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: white;
+  padding: 0.8rem;
+  border-radius: 50%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 body main .productInfo {
@@ -232,6 +283,7 @@ body main .productInfo .productCart .quantity input {
   border: none;
   background-color: transparent;
   font-weight: bolder;
+  font-size: 1rem;
 }
 
 body main .productInfo .productCart .quantity button {
@@ -269,7 +321,20 @@ body main .productInfo .productCart .add .btnAdd {
           box-shadow: 0px 12px 25px -15px #ff7d1a;
 }
 
+body main .productInfo .productCart .add .btnAdd img {
+  margin-right: 1rem;
+  width: 1rem;
+  height: auto;
+}
+
 @media screen and (max-width: 767.98px) {
+  main {
+    -webkit-transform: translateY(-77px);
+            transform: translateY(-77px);
+  }
+  main .carouselMobile {
+    display: block;
+  }
   .cart {
     margin: 0 0.5rem;
     width: 95vw;
@@ -402,6 +467,13 @@ body main .productInfo .productCart .add .btnAdd {
 }
 
 @media screen and (min-width: 768px) {
+  main {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  main .carouselMobile {
+    display: none;
+  }
   .burger {
     display: none;
   }

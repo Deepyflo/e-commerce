@@ -14,5 +14,8 @@ const openCart = () => {
         cart.classList.toggle('closeCart');
     });
 }
+const imageLoad = () => {
+    const product = document.getElementById('')
+}
 openCart();
 toggleMenu();

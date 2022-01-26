@@ -36,7 +36,9 @@ ul {
     font-weight: bold;
 }
 body {
-    
+    button {
+        cursor: pointer;
+    }
     position: relative;
     font-size: 16px;
     font-family: $Kumbh;
@@ -106,8 +108,48 @@ body {
     }
     main {
         display: flex;
+        flex-wrap: wrap;
         .productImage {
-
+            .carouselMobile {
+                // display: none;
+                z-index: 1;
+                max-width: 767.98px;
+                // position: relative;
+                .carouselImageMobile {
+                    img {
+                        max-width: 100%;
+                        display: none;
+                        &.active {
+                            display: block;
+                        }
+                    }
+                    .cont-btn {
+                        display: flex;
+                        z-index: 2;
+                        // position: absolute;
+                        // top: 45%;
+                        transform: translateY(60vw);
+                        justify-content: space-between;
+                        align-items: center;
+                        // text-align: center;
+                        margin: 1rem;
+                        // .right {
+                        //     right: 0;
+                        // }
+                        // .left {
+                        //     left: 0;
+                        // }
+                        .btn-nav {
+                            display: flex;
+                            background-color: $White;
+                            padding: 0.8rem;
+                            border-radius: 50%;
+                            justify-content: center;
+                            align-items: center;
+                        }
+                    }
+                }
+            }
         }
         .productInfo {
             margin: 1rem;
@@ -167,6 +209,7 @@ body {
                         border: none;
                         background-color: transparent;
                         font-weight: bolder;
+                        font-size: 1rem;
                     }
                     button {
                         width: 4rem;
@@ -175,6 +218,7 @@ body {
                         justify-content: center;
                         border: none;
                         background-color: transparent;
+                        
                     }
                 }
                 .add {
@@ -189,13 +233,25 @@ body {
                         border: none;
                         border-radius: 1rem;
                         box-shadow: 0px 12px 25px -15px $Orange;
+                        img {
+                            margin-right: 1rem;
+                            width: 1rem;
+                            height: auto;
+                        }
                     }
                 }
             }
         }
     }
 }
+// Mobile
 @media screen and (max-width:767.98px) {
+    main {
+        transform: translateY(-77px);
+        .carouselMobile {
+            display: block;
+        }
+    }
     .cart {
         margin: 0 0.5rem;
         width: 95vw;
@@ -306,7 +362,14 @@ body {
         }
     }
 }
+// Desktop
 @media screen and (min-width:768px) {
+    main {
+        transform: translateY(0);
+        .carouselMobile {
+            display: none;
+        }
+    }
     .burger {
         display: none;
     }
