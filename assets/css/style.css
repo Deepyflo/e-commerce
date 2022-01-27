@@ -148,11 +148,7 @@ body header .rightHead .btnCart {
 }
 
 body main {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  width: 100%;
 }
 
 body main .productImage .carouselMobile {
@@ -201,11 +197,26 @@ body main .productImage .carouselMobile .carouselImageMobile .cont-btn .btn-nav 
 }
 
 body main .productImage .displayDesktop {
-  margin: 1rem;
+  width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 body main .productImage .displayDesktop .display img {
-  width: 10%;
+  display: none;
+  width: 150%;
+  border-radius: 5%;
+}
+
+body main .productImage .displayDesktop .display .active {
+  display: block;
 }
 
 body main .productImage .displayDesktop .thumbnail {
@@ -214,7 +225,7 @@ body main .productImage .displayDesktop .thumbnail {
 }
 
 body main .productInfo {
-  margin: 1rem;
+  width: 50%;
 }
 
 body main .productInfo .productMark {
@@ -342,6 +353,11 @@ body main .productInfo .productCart .add .btnAdd img {
 
 @media screen and (max-width: 767.98px) {
   main {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
     -webkit-transform: translateY(-77px);
             transform: translateY(-77px);
   }
@@ -488,8 +504,6 @@ body main .productInfo .productCart .add .btnAdd img {
         flex-wrap: nowrap;
     -webkit-transform: translateY(0);
             transform: translateY(0);
-    -ms-flex-pack: distribute;
-        justify-content: space-around;
   }
   main .carouselMobile {
     display: none;

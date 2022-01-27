@@ -107,8 +107,7 @@ body {
         }
     }
     main {
-        display: flex;
-        flex-wrap: wrap;
+        width: 100%;
         .productImage {
             .carouselMobile {
                 // display: none;
@@ -144,13 +143,21 @@ body {
                 }
             }
             .displayDesktop {
-                // width: 50vw;
-                margin: 1rem;
+                width: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
                 .display {
                     img {
-                        width: 10%;
+                        display: none;
+                        width: 150%;
+                        border-radius: 5%;
+                    }
+                    .active {
+                        display: block;
                     }
                 }
+                
                 .thumbnail {
                     display: none;
                     width: 50%;
@@ -158,7 +165,7 @@ body {
             }
         }
         .productInfo {
-            margin: 1rem;
+            width: 50%;
             .productMark {
                 color: $Orange;
                 text-transform: uppercase;
@@ -253,6 +260,8 @@ body {
 // Mobile
 @media screen and (max-width:767.98px) {
     main {
+        display: flex;
+        flex-wrap: wrap;
         transform: translateY(-77px);
         .carouselMobile {
             display: block;
@@ -371,10 +380,12 @@ body {
 // Desktop
 @media screen and (min-width:768px) {
     main {
+        
         display: flex;
         flex-wrap: nowrap;
         transform: translateY(0);
-        justify-content: space-around;
+        // padding: 1rem;
+        // justify-content: space-around;
         .carouselMobile {
             display: none;
         }
