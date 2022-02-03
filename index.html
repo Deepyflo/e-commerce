@@ -17,7 +17,7 @@
 	</head>
 	<body>
 		<header>
-			<div class="cart closeCart">
+			<div class="cart openCart">
 				<p class="cartText bold">Cart</p>
 				<hr>
 				<div class="content">
@@ -53,29 +53,23 @@
 			<section class="productImage" >
 				<div class="carouselMobile">
 					<div class="carouselImageMobile">
+						<img id="carousel" class="active" src="" alt="image of product">
 						<div class="cont-btn">
-							<div class="btn-nav left"><img class="active" src="./assets/img/icon-previous.svg" alt="icon previous"></div>
-							<div class="btn-nav right"><img class="active" src="./assets/img/icon-next.svg" alt="icon next"></div>
+							<div class="btn-nav left" id="btnLeft"><img class="active" src="./assets/img/icon-previous.svg" alt="icon previous"></div>
+							<div class="btn-nav right" id="btnRight"><img class="active" src="./assets/img/icon-next.svg" alt="icon next"></div>
 						</div>
-						<img class="active" src="./assets/img/image-product-1.jpg" alt="image of product 1">
-						<img src="./assets/img/image-product-2.jpg" alt="image of product 2">
-						<img src="./assets/img/image-product-3.jpg" alt="image of product 3">
-						<img src="./assets/img/image-product-4.jpg" alt="image of product 4">
 					</div>
 				</div>
 				
 				<div class="displayDesktop">
 					<div class="display">
-						<img class="active" src="./assets/img/image-product-1.jpg" alt="image of product 1">
-						<img src="./assets/img/image-product-2.jpg" alt="image of product 2">
-						<img src="./assets/img/image-product-3.jpg" alt="image of product 3">
-						<img src="./assets/img/image-product-4.jpg" alt="image of product 4">
+						<img id='display' class="active" src="./assets/img/image-product-1.jpg" alt="image of product 1">
 					</div>
 					<div class="thumbnail">
-						<img class="active" src="./assets/img/image-product-1-thumbnail.jpg" alt="mini image of product 1">
-						<img src="./assets/img/image-product-2-thumbnail.jpg" alt="mini image of product 2">
-						<img src="./assets/img/image-product-3-thumbnail.jpg" alt="mini image of product 3">
-						<img src="./assets/img/image-product-4-thumbnail.jpg" alt="mini image of product 4">
+						<img class="active" src="./assets/img/image-product-1-thumbnail.jpg" alt="mini image of product 1" id="thumbnail1">
+						<img src="./assets/img/image-product-2-thumbnail.jpg" alt="mini image of product 2" id="thumbnail2">
+						<img src="./assets/img/image-product-3-thumbnail.jpg" alt="mini image of product 3" id="thumbnail3">
+						<img src="./assets/img/image-product-4-thumbnail.jpg" alt="mini image of product 4" id="thumbnail4">
 					</div>
 				</div>
 				<div class="carouselDesktop">
@@ -90,14 +84,14 @@
 					<p>Sneaker Company</p>
 				</div>
 				<div class="productName">
-					<h1>Fall Limited Edition Sneakers</h1>
+					<h1 id="productTitle">Fall Limited Edition Sneakers</h1>
 				</div>
 				<div class="productDesc">
 					<p>These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they’ll withstand everything the weather can offer.</p>
 				</div>
 				<div class="productPrice">
 					<div class="price">
-						<p class="bold priceChild">$125.00</p>
+						<p class="bold priceChild">$<span id="price">125</span>.00</p>
 						<div class="discount bold">
 							<p>50%</p>
 						</div>
@@ -109,7 +103,7 @@
 				<div class="productCart">
 					<div class="quantity">
 						<button id="btnMinus"><img src="./assets/img/icon-minus.svg" alt="icon minus"></button>
-						<input type="text" name="qte" id="InQuantity" value="0">
+						<input type="text" name="qte" id="inQuantity" value="0">
 						<button id="btnPlus"><img src="./assets/img/icon-plus.svg" alt="icon plus"></button>
 					</div>
 					<div class="add">
