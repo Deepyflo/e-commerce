@@ -13,7 +13,6 @@ This is a solution to the [E-commerce product page challenge on Frontend Mentor]
   - [Continued development](#continued-development)
   - [Useful resources](#useful-resources)
 - [Author](#author)
-- [Acknowledgments](#acknowledgments)
 
 ## Overview
 
@@ -42,7 +41,7 @@ Users should be able to:
 
 ### Links
 
-- Live Site URL: [Site](https://your-live-site-url.com)
+- Live Site URL: [Site](https://deepyflo.github.io/e-commerce/)
 
 ## My process
 
