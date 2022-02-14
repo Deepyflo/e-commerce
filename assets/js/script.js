@@ -1,3 +1,5 @@
+let clicked = false;
+
 const toggleMenu = () => {  
     const navbar = document.querySelector('.navbar');
     const burger = document.querySelector('.burger');
@@ -38,51 +40,62 @@ const addToCart = () => {
     const inQuantity = document.getElementById('inQuantity');
     const content = document.querySelector('.content');
     const textPrice = parseInt(document.getElementById('price').innerText);
+    let clicked = false;
 
     
     let cart = 0;
     btnAddCart.addEventListener('click', (e) => {
-        let quantity = parseInt(inQuantity.value);
-        if (quantity != 0) {
-            if (cart == 0) {
-                content.innerHTML = "";
-                //create object
+        if (clicked) {
+            alert('This product is already in your cart');
+        } else {
+            let quantity = parseInt(inQuantity.value);
+            if (quantity != 0) {
+                if (cart == 0) {
+                    content.innerHTML = "";
+                    //create object
+                    
+                }
                 let object = document.createElement('div');
-
+                object.classList.add('objectCart');
                 content.appendChild(object);
                 let button = document.createElement('button');
                 button.innerText = 'Checkout';
+                button.classList.add('checkout');
+
+                //create image of product in cart
+                let img = document.createElement('img');
+                img.src = './assets/img/image-product-1-thumbnail.jpg';
+                img.classList.add('imgCart');
+                object.appendChild(img);
+
+                //create title and price
+                let titleAndPrice = document.createElement('div');
+                let title = document.createElement('p');
+                title.classList.add('CartProductTitle');
+                title.innerText = document.getElementById('productTitle').innerText;
+                titleAndPrice.appendChild(title);
+                let price = document.createElement('p');
+                price.classList.add('cartPrice');
+                let sum = textPrice * quantity;
+                price.innerHTML = '$' + textPrice + '.00 x ' + quantity + ' <span class="bold">$' + sum + '.00</span>';
+                titleAndPrice.appendChild(price);
+                object.appendChild(titleAndPrice)
+
+                //create trash icon
+                let trash = document.createElement('img');
+                trash.src = './assets/img/icon-delete.svg';
+                trash.classList.add('trash');
+                trash.setAttribute('id', 'trash');
+                object.appendChild(trash);
+                content.appendChild(object);
                 content.appendChild(button);
+                cart++;
+                clicked = true;
+
+                RemoveCart();
+            } else {
+                alert('You cannot add a product without putting a quantity !');
             }
-            
-
-            //create image of product in cart
-            let img = document.createElement('img');
-            img.src = './assets/img/image-product-1-thumbnail.jpg';
-            img.classList.add('imgCart');
-            object.appendChild(img);
-
-            //create title and price
-            let titleAndPrice = document.createElement('div');
-            let title = document.createElement('p');
-            title.innerText = document.getElementById('productTitle').innerText;
-            titleAndPrice.appendChild(title);
-            let price = document.createElement('p');
-            let sum = textPrice * quantity;
-            price.innerHTML = '$' + textPrice + ' x ' + quantity + ' <span class="bold">$' + sum + '</span>';
-            titleAndPrice.appendChild(price);
-            object.appendChild(titleAndPrice)
-
-            //create trash icon
-            let trash = document.createElement('img');
-            trash.src = './assets/img/icon-delete.svg';
-            trash.classList.add('trash');
-            object.appendChild(trash);
-            content.appendChild(object);
-
-            cart++;
-        } else {
-            alert('You cannot add a product without putting a quantity !');
         }
     });
 }
@@ -164,7 +177,21 @@ const CarouselMobile = () => {
         img.src = pictures[position];
     });
 }
+const RemoveCart = () => {
+    const trash = document.getElementById('trash');
+    const content = document.querySelector('.content');
 
+    trash.addEventListener('click', (e) => {
+        content.innerHTML = "";
+
+        let p = document.createElement('p');
+        p.classList.add('cartText');
+        p.innerText = 'Your cart is empty';
+
+        content.appendChild(p);
+        clicked = false;
+    })
+}
 CarouselMobile();
 changeImage();
 addToCart();
